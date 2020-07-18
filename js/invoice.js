@@ -85,9 +85,10 @@ function generatePDF() {
         scale: 4,
         useCORS: true,
       },
-      // pagebreak: {
-      // mode: ['avoid-all', 'css', 'legacy']
-      // },
+      pagebreak: {
+        // mode: ['avoid-all', 'css', 'legacy'],
+        avoid: 'footer'
+      },
       margin: [0.6, 0],
       filename: `invoice_${invoiceNumber}.pdf`,
       jsPDF: {
