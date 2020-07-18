@@ -27,8 +27,8 @@ function generateItems() {
   }
 }
 
-function setwidth() {
-  this.style.width = (((this.value.length + 1) * 8) + 10) + 'px';
+function setwidth(tf) {
+  tf.style.width = (((tf.value.length + 1) * 8) + 10) + 'px';
 }
 
 function addItem() {
@@ -49,8 +49,10 @@ function addItem() {
   textfield2.type = "number";
   textfield2.placeholder = "Item Price";
   textfield2.classList.add("item-input", "item-price");
-  textfield2.oninput = getTotal;
-  textfield2.oninput = setwidth;
+  textfield2.oninput = () => {
+    setwidth(textfield2);
+    getTotal();
+  };
 
   td1.appendChild(textfield1);
   td2.appendChild(text2);
