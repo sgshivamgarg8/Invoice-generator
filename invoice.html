@@ -6,7 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Invoice</title>
   <script src="js/html2pdf.bundle.min.js"></script>
-  <script src="js/invoice.js"></script>
   <link rel="stylesheet" href="css/style.css">
 </head>
 
@@ -30,10 +29,9 @@
               </td> -->
 
               <td>
-                Invoice #: <input type="text" class="item-input invoice-number" placeholder="Invoice no."
-                  onkeypress="this.style.width = ((this.value.length + 1) * 8) + 'px';"><br>
-                Created: January 1, 2015<br>
-                Due: February 1, 2015
+                Invoice #: <input type="number" class="item-input invoice-number" placeholder="Enter Invoice no."
+                  oninput="this.style.width = (((this.value.length + 1) * 8) + 10) + 'px';"><br>
+                Date: <span id="date"></span>
               </td>
             </tr>
           </table>
@@ -108,6 +106,7 @@
     </footer>
   </div>
 
+  <script src="js/invoice.js"></script>
 </body>
 
 </html>

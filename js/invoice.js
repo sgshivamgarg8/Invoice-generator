@@ -1,3 +1,11 @@
+function getDate() {
+  const date = new Date().toDateString();
+  console.log(date);
+  document.querySelector('#date').textContent = date;
+}
+
+getDate();
+
 function getTotal() {
   const items = document.querySelectorAll(".item-price");
   let total = 0.0;
@@ -7,37 +15,20 @@ function getTotal() {
   }
   console.log(total);
   const textField = document.querySelector('#total-amount');
-  textField.textContent = +(Math.round(total + "e+2") + "e-2");
+  const val = +(Math.round(total + "e+2") + "e-2");
+  textField.textContent = val.toFixed(2);
 }
 
 function generateItems() {
   const items = document.querySelector('#item-count').value;
 
-  const table = document.querySelector('#items-table');
-
   for (let i = 0; i < items; i++) {
-    var tr = document.createElement('tr');
-    var td1 = document.createElement('td');
-    var td2 = document.createElement('td');
-
-    var textfield1 = document.createElement("input");
-    textfield1.type = "text";
-    textfield1.placeholder = "Item Name";
-    textfield1.classList.add("item-input", "item-name");
-
-    var textfield2 = document.createElement("input");
-    textfield2.type = "text";
-    textfield2.placeholder = "Item Price";
-    textfield2.classList.add("item-input", "item-price");
-
-    td1.appendChild(textfield1);
-    td2.appendChild(textfield2);
-    tr.appendChild(td1);
-    tr.appendChild(td2);
-
-    table.appendChild(tr);
+    addItem();
   }
+}
 
+function setwidth() {
+  this.style.width = (((this.value.length + 1) * 8) + 10) + 'px';
 }
 
 function addItem() {
@@ -46,6 +37,8 @@ function addItem() {
   var tr = document.createElement('tr');
   var td1 = document.createElement('td');
   var td2 = document.createElement('td');
+
+  var text2 = document.createTextNode('Rs.');
 
   var textfield1 = document.createElement("input");
   textfield1.type = "text";
@@ -57,8 +50,10 @@ function addItem() {
   textfield2.placeholder = "Item Price";
   textfield2.classList.add("item-input", "item-price");
   textfield2.oninput = getTotal;
+  textfield2.oninput = setwidth;
 
   td1.appendChild(textfield1);
+  td2.appendChild(text2);
   td2.appendChild(textfield2);
   tr.appendChild(td1);
   tr.appendChild(td2);
@@ -74,6 +69,7 @@ function deleteItem() {
 
 function generatePDF() {
   getTotal();
+  getDate();
   // Choose the element that our invoice is rendered in.
   const element = document.getElementById("invoice");
   const invoiceNumber = document.getElementsByClassName("invoice-number")[0].value || "no_number";

@@ -96,12 +96,12 @@
   text-align: end;
 }
 
-.item-input {
-  border: none;
+input {
+  color: #555;
 }
 
-.invoice-number {
-  text-align: end;
+.item-input {
+  border: none;
 }
 
 .item-price {
