@@ -28,7 +28,7 @@ function generateItems() {
 }
 
 function setwidth(tf) {
-  tf.style.width = (((tf.value.length + 1) * 8) - 8) + 'px';
+  tf.style.width = (((tf.value.length + 1) * 8) - 7) + 'px';
 }
 
 function addItem() {
@@ -46,7 +46,7 @@ function addItem() {
   textfield1.classList.add("item-input", "item-name");
 
   var textfield2 = document.createElement("input");
-  textfield2.type = "text";
+  textfield2.type = "number";
   textfield2.placeholder = "Item Price";
   textfield2.classList.add("item-input", "item-price");
   textfield2.oninput = () => {
