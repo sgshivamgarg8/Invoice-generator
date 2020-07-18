@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Invoice</title>
+  <script src="js/html2pdf.bundle.min.js"></script>
+  <script src="js/invoice.js"></script>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <button onclick="generatePDF()">Download PDF</button>
+  <div id="item-div">
+    <input type="number" name="itemCount" id="item-count" placeholder="Enter no. of Items">
+    <button onclick="generateItems()">Generate Items</button>
+    <button onclick="addItem()">Add Item</button>
+    <button onclick="deleteItem()">Delete Item</button>
+  </div>
+
+  <div id="invoice">
+    <table cellpadding="0" cellspacing="0">
+      <tr class="top">
+        <td colspan="2">
+          <table>
+            <tr>
+              <!-- <td class="title">
+                <img src="logo.jpg" style="width:100%; max-width:300px;">
+              </td> -->
+
+              <td>
+                Invoice #: <input type="text" class="item-input invoice-number" placeholder="Invoice no."
+                  onkeypress="this.style.width = ((this.value.length + 1) * 8) + 'px';"><br>
+                Created: January 1, 2015<br>
+                Due: February 1, 2015
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+
+      <tr class="information">
+        <td colspan="2">
+          <table>
+            <tr>
+              <td>
+                Sparksuite, Inc.<br>
+                12345 Sunny Road<br>
+                Sunnyville, CA 12345
+              </td>
+
+              <td>
+                Acme Corp.<br>
+                John Doe<br>
+                john@example.com
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+
+      <tr class="heading">
+        <td>
+          Payment Method
+        </td>
+
+        <td>
+          Check #
+        </td>
+      </tr>
+
+      <tr class="details">
+        <td>
+          Check
+        </td>
+
+        <td>
+          1000
+        </td>
+      </tr>
+
+    </table>
+
+    <table id="items-table">
+      <tr class="heading">
+        <td>Item</td>
+        <td>Price</td>
+      </tr>
+    </table>
+
+    <table>
+      <th id="total"><span>Total: Rs.</span> <span id="total-amount">0</span>
+      </th>
+    </table>
+
+
+    <footer>
+      <div>
+        <b>Bank Details:</b> Abcd eryyery rfhhdh, ssgsgsg <br>
+        <b>AC name:</b> ABC DEF <br>
+        <b>AC no.:</b> 3525353646 <br>
+      </div>
+      <div class="sign">
+        For SIGNATORY <br>
+        (Proprietor)
+      </div>
+    </footer>
+  </div>
+
+</body>
+
+</html>
