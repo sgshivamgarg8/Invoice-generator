@@ -114,6 +114,10 @@ input {
   margin: 10px;
 }
 
+.item-name {
+  width: 100%;
+}
+
 footer {
   margin-top: 50px;
   display: flex;
